@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "510949629965",
+    "firebase_url": "https://waistand-proto.firebaseio.com",
+    "project_id": "waistand-proto",
+    "storage_bucket": "waistand-proto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510949629965:android:01ba9c1b4eb9b5f670b544",
+        "android_client_info": {
+          "package_name": "com.example.waistand"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510949629965-4rqjsockhtbcbfji8vc31pg9ac5g2c8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZMMn8d7dhZu0jO4zobvLXiWTOExTS7ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510949629965-4rqjsockhtbcbfji8vc31pg9ac5g2c8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
