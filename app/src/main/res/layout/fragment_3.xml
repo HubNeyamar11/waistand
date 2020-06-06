@@ -23,12 +23,14 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp">
                 <TextView
+                    android:fontFamily="@font/binggraemelona"
                     android:id="@+id/timeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="오늘 총 착석시간 : "
                     android:textSize="20dp"/>
                 <TextView
+                    android:fontFamily="@font/binggraemelona"
                     android:id="@+id/todayTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
