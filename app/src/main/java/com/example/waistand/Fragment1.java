@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -69,6 +71,7 @@ public class Fragment1 extends Fragment {
     public String arrayNums[] = new String[28]; //string 배열
     public int array[] = new int[arrayNums.length]; //int 배열
 
+    public ToggleButton vibrate;
     //String[] array;
     //ArrayList<Integer> idList = new ArrayList<>();
 
@@ -83,10 +86,12 @@ public class Fragment1 extends Fragment {
 
        //context_main = getContext();
 
+        vibrate = rootView.findViewById(R.id.toggleButton);
+
         context_frag1= getContext();
         Button stop = rootView.findViewById(R.id.btnStop);
 
-        Button request = rootView.findViewById(R.id.btnRequest);
+        //Button request = rootView.findViewById(R.id.btnRequest);
 
         btnConnect = rootView.findViewById(R.id.btnConnect);
         btnSend = rootView.findViewById(R.id.btnSend);
@@ -98,6 +103,22 @@ public class Fragment1 extends Fragment {
             Toast.makeText(getActivity().getApplicationContext(), "블루투스를 사용할 수 없습니다.", Toast.LENGTH_SHORT).show();
             getActivity().finish();
         }
+        vibrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(vibrate.isChecked()){
+                    vibrate.setBackgroundDrawable(
+                            getResources().getDrawable(R.drawable.vibration)
+                    );
+                }else{
+
+                    vibrate.setBackgroundDrawable(
+                            getResources().getDrawable(R.drawable.silent)
+                    );
+                }
+            }
+        });
+
 
         // 데이터 수신 이벤트 리스너
         btSpp.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() {
@@ -178,6 +199,9 @@ public class Fragment1 extends Fragment {
                 int left1 =0;  int left2 =0; int left3=0;
                 int right=0; int right2=0; int rifht3=0;
 
+                int front=0;
+                int back=0;
+
 
                 for (int l=0; l<14 ; l++){
                     left1= left1 +array[l];
@@ -190,15 +214,36 @@ public class Fragment1 extends Fragment {
                 for (int r=14; r<28;r++){
                     right = right + array[r];
                 }
+                for (int f=9; f<19; f++){
+                    front = front +array[f];
+                }
+                for(int b=0; b<4 ; b++){
+                    back = back+ array[b];
+                }
+                for(int b=24; b<28; b++){
+                    back = back + array[b];
+                }
+                Log.i("front", "앞에값 "+ front);
+                Log.i("back", "뒤에값 "+back);
 
-                if (left1>right  ){
+                if (left1>right&& left1>450 && vibrate.isChecked()  ){
                     //푸시 알림
                     showNotiL();
-                    Toast.makeText(getActivity().getApplicationContext(),"바른 자세로 앉아 주세요! ",Toast.LENGTH_SHORT).show();
+                    //btSpp.send("qwer",true);
+                    //Toast.makeText(getActivity().getApplicationContext(),"바른 자세로 앉아 주세요! ",Toast.LENGTH_SHORT).show();
                 }
-                else if (left1<right  && right>900 ){
+                else if (left1<right  && right>1000 &&vibrate.isChecked() ){
                     showNotiR();
-                    Toast.makeText(getActivity().getApplicationContext(),"바른 자세로 앉아주세요! ",Toast.LENGTH_SHORT).show();
+                    //btSpp.send("qwer",true);
+                    //Toast.makeText(getActivity().getApplicationContext(),"바른 자세로 앉아주세요! ",Toast.LENGTH_SHORT).show();
+                }
+                else if(front>50  && front<150 && back>50 && vibrate.isChecked()) {
+                    showNotiF();
+                    //btSpp.send("qwer",true);
+                }
+                else if(back<10 && front>150 &&vibrate.isChecked()){
+                    showNotiB();
+                    //btSpp.send("100",true);
                 }
 
 
@@ -255,12 +300,13 @@ public class Fragment1 extends Fragment {
             }
         });
         
-        request.setOnClickListener(new View.OnClickListener() {
+        /*request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(rootView.getContext(), "전송되었습니다.", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
+
 
 
         return rootView;
@@ -307,15 +353,17 @@ public class Fragment1 extends Fragment {
 
 
     //푸시 알림 메소드
-    public void showNotiL(){
-        builder = null; manager = (NotificationManager)  getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+    public void showNotiL() {
+        builder = null;
+        manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             manager.createNotificationChannel(
                     new NotificationChannel(CHANNEL_ID, CHANEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
             );
-            builder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID);
+            builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID);
             //하위 버전일 경우
-        }else{
+        }
+        else{
             builder = new NotificationCompat.Builder(getActivity());
         }
         //알림창 제목
@@ -350,6 +398,60 @@ public class Fragment1 extends Fragment {
         builder.setContentTitle("Waistand");
         // 알림창 메시지
         builder.setContentText("오른쪽으로 치우쳤어요!");
+        // 알림창 아이콘
+        builder.setSmallIcon(R.drawable.sensor);
+        //알림창 터치시 삭제
+        builder.setAutoCancel(true);
+
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        Notification notification = builder.build();
+        //알림창 실행
+        manager.notify(1,notification);
+
+    }
+    public void showNotiF(){
+        builder = null; manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            manager.createNotificationChannel(
+                    new NotificationChannel(CHANNEL_ID, CHANEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
+            );
+            builder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID);
+            //하위 버전일 경우
+        }else{
+            builder = new NotificationCompat.Builder(getActivity());
+        }
+        //알림창 제목
+        builder.setContentTitle("Waistand");
+        // 알림창 메시지
+        builder.setContentText("앞으로 숙이셨어요!");
+        // 알림창 아이콘
+        builder.setSmallIcon(R.drawable.sensor);
+        //알림창 터치시 삭제
+        builder.setAutoCancel(true);
+
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        Notification notification = builder.build();
+        //알림창 실행
+        manager.notify(1,notification);
+
+    }
+    public void showNotiB(){
+        builder = null; manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            manager.createNotificationChannel(
+                    new NotificationChannel(CHANNEL_ID, CHANEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
+            );
+            builder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID);
+            //하위 버전일 경우
+        }else{
+            builder = new NotificationCompat.Builder(getActivity());
+        }
+        //알림창 제목
+        builder.setContentTitle("Waistand");
+        // 알림창 메시지
+        builder.setContentText("방석에 걸터 앉으셨어요!");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제

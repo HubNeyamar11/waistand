@@ -121,7 +121,7 @@ public class Fragment3 extends Fragment {
             pieEntries.add(new PieEntry((Integer)jsonList_pie.get(i), (String)labelList_pie.get(i)));
         } // 파이차트 데이터셋에 쓰일 엔트리 데이터
 
-        PieDataSet pieDataSet = new PieDataSet(pieEntries, "오늘의 자세 통계"); // 파이차트 데이터셋 객체
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, ""); // 파이차트 데이터셋 객체
         pieDataSet.setColors(colorArray); // 바른자세: blue , 나쁜자세: red
 
         PieData pieData = new PieData(pieDataSet); //파이차트 데이터 세팅 완료
@@ -142,11 +142,11 @@ public class Fragment3 extends Fragment {
             entries.add(new Entry((Integer)jsonList.get(i), i));
         }// 꺾은선 차트 데이터셋에 쓰일 엔트리데이터
 
-        LineDataSet lineDataSet = new LineDataSet(entries, "# of Calls"); // 꺾은선 차트 데이터셋 객체
+        LineDataSet lineDataSet = new LineDataSet(entries, ""); // 꺾은선 차트 데이터셋 객체
 
         ArrayList<String> labels = new ArrayList<>();
         for(int i=0; i<labelList.size(); i++){
-            labels.add((String)labelList.get(i));
+            labels.add((String)labelList.get(i)+i);
         } // 라벨 리스트
 
         Collections.sort(entries, new EntryXComparator());

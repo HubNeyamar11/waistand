@@ -15,6 +15,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,11 +39,12 @@ public class GameView extends SurfaceView implements Runnable {
     private Flight flight;
     private GameActivity activity;
     private Background background1, background2;
+    private Object Fragment1;
 
     public GameView(GameActivity activity, int screenX, int screenY) {
         super(activity);
         this.activity = activity;
-        Log.i("생성2222222", "onCreate: ");
+        Log.i("게임뷰 생성2222222", "onCreate: ");
         prefs = activity.getSharedPreferences("game", Context.MODE_PRIVATE);
 
 
@@ -52,6 +58,7 @@ public class GameView extends SurfaceView implements Runnable {
             soundPool = new SoundPool.Builder()
                     .setAudioAttributes(audioAttributes)
                     .build();
+            Log.i("이프문", "GameView: ");
 
         } else
             soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -84,6 +91,7 @@ public class GameView extends SurfaceView implements Runnable {
             Bird bird = new Bird(getResources());   // 새 새로 생성
             birds[i] = bird;
 
+
         }
 
         random = new Random();
@@ -93,6 +101,7 @@ public class GameView extends SurfaceView implements Runnable {
     public void run() {
         while (isPlaying) {
             Log.i("Run", "draw: ");
+            //moving();
             update ();
             draw ();
             sleep ();
@@ -190,7 +199,7 @@ public class GameView extends SurfaceView implements Runnable {
             Canvas canvas = getHolder().lockCanvas();
             canvas.drawBitmap(background1.background, background1.x, background1.y, paint);
             canvas.drawBitmap(background2.background, background2.x, background2.y, paint);
-            Log.i("그려졌나", "draw: ");
+
 
             for (Bird bird : birds)
                 canvas.drawBitmap(bird.mercury, bird.x, bird.y, paint);   // 행성 장애물 그려냄
@@ -223,7 +232,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         try {
             Thread.sleep(1000);
-            activity.startActivity(new Intent(activity, MainActivity.class));
+            activity.startActivity(new Intent(activity, GameActivity.class));
             activity.finish();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -268,9 +277,12 @@ public class GameView extends SurfaceView implements Runnable {
 
     }
 
-   /* public void moving(){
 
-        //int getArray [] = ((Fragment1)Fragment1.context_frag1).array;
+
+
+    public void moving(){
+
+        int getArray [] = ((Fragment1)Fragment1).array;
         int left1 =0; int right=0;
 
         for (int l=0; l<14 ; l++){
@@ -296,7 +308,7 @@ public class GameView extends SurfaceView implements Runnable {
         Log.d("오른쪽", "right: "+right);
 
 
-    }*/
+    }
 
 
 

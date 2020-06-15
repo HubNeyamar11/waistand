@@ -15,6 +15,7 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -48,9 +49,7 @@ public class Fragment2 extends Fragment  {
 
 
     private boolean isMute;
-
     private BluetoothSPP bt;
-
     public static Context context_main;
 
 
@@ -64,8 +63,10 @@ public class Fragment2 extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         final ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_2, container, false);
 
+        getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //게임 뷰 띄우기
         rootView.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
             @Override
