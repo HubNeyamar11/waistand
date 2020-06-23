@@ -43,6 +43,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+    compile 'com.github.kassisdion:ViewPagerWithIndicator:v1.0'
 
 
 }

@@ -6,28 +6,49 @@
     tools:context=".Fragment2">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/space"
-            android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/space"
+        >
+
+
 
         <TextView
+            android:fontFamily="@font/binggraemelona"
             android:id="@+id/tvConect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/highScoreTxt"
             android:layout_centerHorizontal="true"
-
-            android:text="I Have To Fly!"
+            android:text="Waistand in Space"
             android:textColor="#ffffff"
-            android:textSize="48sp" />
+            android:textSize="40dp" />
 
         <TextView
+            android:fontFamily="@font/binggraemelona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:text="허리 스트레칭을 하며 운석을 피해 보아요!"
+            android:textColor="#ffffff" />
+        <TextView
+            android:id="@+id/highScoreTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/binggraemelona"
+            android:text="High Score"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <TextView
+            android:fontFamily="@font/binggraemelona"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Play"
@@ -36,24 +57,54 @@
             android:textColor="#ffffff"
             android:id="@+id/play"/>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/tetrisback">
+        <TextView
+            android:fontFamily="@font/binggraemelona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Waistand in Tetris"
+            android:textColor="@color/colorYellow"
+            android:textSize="40dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textColor="#ffffff"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/binggraemelona"
+            android:text="허리 스트레칭으로 테트리스 게임!"
+            android:textColor="@color/colorYellow" />
+        <TextView
+            android:id="@+id/testrisHighScoreTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/binggraemelona"
             android:text="High Score"
-            android:id="@+id/highScoreTxt"
-            android:layout_margin="16dp"
-            android:layout_alignParentRight="true"/>
+            android:textColor="@color/colorYellow"
+            android:textSize="24sp" />
 
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="16dp"
-            android:id="@+id/volumeCtrl"
-            android:src="@drawable/ic_volume_up_black_24dp"/>
-    </RelativeLayout>
+        <TextView
+            android:fontFamily="@font/binggraemelona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:textSize="64sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorYellow"
+            android:id="@+id/tetrisPlay"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+
 
 
 </FrameLayout>

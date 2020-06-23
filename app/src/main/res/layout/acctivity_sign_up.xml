@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/textView"
+        android:fontFamily="@font/binggraemelona"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"

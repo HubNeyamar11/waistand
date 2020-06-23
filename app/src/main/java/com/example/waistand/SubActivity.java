@@ -8,7 +8,11 @@
 * */
 package com.example.waistand;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,14 +22,33 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.waistand.R;
 import com.example.waistand.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
+import com.kassisdion.library.ViewPagerWithIndicator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SubActivity extends AppCompatActivity {
+
+    public int getarr[] = new int[28];
+    public static Context context_sub;
+    //private final static String FRAGMENT_TAG = "FRAGMENTB_TAG";
+
+    private CustomDialog customDialog;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        customDialog = new CustomDialog(this,positiveListener,negativeListener);
+        customDialog.show();
+
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        toolbar.setTitle("웨이스탠드");
 //        getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -40,10 +63,40 @@ public class SubActivity extends AppCompatActivity {
 
         ArrayList<Integer> images = new ArrayList<>();
         images.add(R.drawable.seat);
-        images.add(R.drawable.graph);
+        images.add(R.drawable.gamecontroller);
         images.add(R.drawable.calendar_monthly);
 
+        context_sub = this;
         for(int i=0; i<3; i++)
             tab.getTabAt(i).setIcon(images.get(i));
+
+
     }
+
+    //팝업 창 버튼 눌렀을 때
+    private View.OnClickListener positiveListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            //Toast.makeText(getApplicationContext(), "확인버튼이 눌렸습니다.",Toast.LENGTH_SHORT).show();
+            //customDialog.dismiss();
+        }
+    };
+
+    private View.OnClickListener negativeListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            //Toast.makeText(getApplicationContext(), "취소버튼이 눌렸습니다.",Toast.LENGTH_SHORT).show();
+            customDialog.dismiss();
+        }
+    };
+
+
+
+
+    public void setVal(){
+
+    }
+    /*public void getArray(int getarr[]){
+
+
+    }*/
+
 }

@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".SplashActivity" >
 
         </activity>
+
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.noActionBar"/>
@@ -27,10 +29,16 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity
-            android:name=".GameActivity"
+            android:name=".flight.GameActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.noActionBar"
             />
+        <activity android:name=".tetrisgame.ChoboTetrisActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
     </application>
 
 </manifest>

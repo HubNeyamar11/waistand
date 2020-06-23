@@ -6,41 +6,26 @@ package com.example.waistand;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.LargeValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.highlight.Highlight;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.EntryXComparator;
-
-import java.util.ArrayList;
-import java.util.Collections;
+import com.example.waistand.flight.GameActivity;
+import com.example.waistand.player.Player;
+import com.example.waistand.player.PlayerImpl;
+import com.example.waistand.tetrisgame.ChoboTetrisActivity;
+import com.example.waistand.tetrisgame.TetrisViewForN8;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,12 +37,16 @@ public class Fragment2 extends Fragment  {
     private BluetoothSPP bt;
     public static Context context_main;
 
+    public TextView tetrisHigh;
 
+
+    private TetrisViewForN8 twN8;
 
 
     public Fragment2() {
         // Required empty public constructor
     }
+
 
 
     @Override
@@ -71,7 +60,7 @@ public class Fragment2 extends Fragment  {
         rootView.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),GameActivity.class);
+                Intent intent = new Intent(getActivity(), GameActivity.class);
                 startActivity(intent);
 
                onStop();
@@ -79,9 +68,39 @@ public class Fragment2 extends Fragment  {
 
         });
 
+        rootView.findViewById(R.id.tetrisPlay).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mintent = new Intent(getActivity(), ChoboTetrisActivity.class);
+                startActivity(mintent);
+
+                onStop();
+            }
+        });
+
+        TextView highScoreTxt = rootView.findViewById(R.id.highScoreTxt);
+
+        final SharedPreferences prefs = getActivity().getSharedPreferences("game", MODE_PRIVATE);
+        highScoreTxt.setText("HighScore: " + prefs.getInt("highscore", 0));
+
+        tetrisHigh = rootView.findViewById(R.id.testrisHighScoreTxt);
+
+        context_main= getContext();
+        int BOARD_WIDTH = 10;
+        int BOARD_HEIGHT = 20;
+
+        Player player = new PlayerImpl(BOARD_WIDTH, BOARD_HEIGHT);
+
+        twN8 = new TetrisViewForN8(getContext(), player);
+        setValue(twN8.returnValue());
+
         return rootView;
     }
 
+    public void setValue(int num){
+
+        tetrisHigh.setText("HighScore: "+ String.valueOf(num));
+    }
 
 
 

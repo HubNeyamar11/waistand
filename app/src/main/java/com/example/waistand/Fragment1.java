@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.room.Room;
 
 import android.os.Handler;
@@ -50,8 +51,9 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment1 extends Fragment {
-    //MainActivity mainactivity;
+
     public static Context context_frag1;
+
 
 
     private BluetoothSPP btSpp;
@@ -88,7 +90,10 @@ public class Fragment1 extends Fragment {
 
         vibrate = rootView.findViewById(R.id.toggleButton);
 
-        context_frag1= getContext();
+        context_frag1= getActivity();
+
+
+
         Button stop = rootView.findViewById(R.id.btnStop);
 
         //Button request = rootView.findViewById(R.id.btnRequest);
@@ -173,6 +178,9 @@ public class Fragment1 extends Fragment {
                     // int배열로 변환
                     array[i]=Integer.parseInt(arrayNums[i]);
 
+                    ((SubActivity)SubActivity.context_sub).getarr[i]= array[i];
+
+
 
                     //값에따라 색상
                     if (array[i]<70){
@@ -189,6 +197,8 @@ public class Fragment1 extends Fragment {
                     ((TextView) rootView.findViewById(k)).setText(arrayNums[i]);
 
                 }
+
+
 
 
 

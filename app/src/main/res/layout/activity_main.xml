@@ -13,6 +13,7 @@
     app:layout_constraintTop_toTopOf="parent"
     android:background="@color/colorWhite">
         <TextView
+            android:fontFamily="@font/binggraemelona"
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
