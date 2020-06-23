@@ -10,6 +10,8 @@ public abstract class PlayerInput {
 
     public abstract boolean touch(int x, int y);
 
+   // public abstract boolean keymap(int[] getFuck);
+
 
     public  void registerPlayer(Player player) {
         this.player = player;

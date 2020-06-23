@@ -13,10 +13,15 @@ public class PlayerInputImplForN8 extends PlayerInput {
         startY = 80;
     }
 
-    public boolean touch(int touchX, int touchY) {
+
+
+    public boolean touch(int touchX, int touchY  ) {
         if (player == null) {
             return true;
         }
+
+
+
 
         if ((touchX > 190) && (touchY > 400)
                 && (touchX < 500) && (touchY < 500)) {
@@ -37,8 +42,10 @@ public class PlayerInputImplForN8 extends PlayerInput {
         if (touchX > startX + 750 &&
                 touchY > startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 &&
                 touchX < startX + 950 &&
-                touchY < startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 + 200) {
-            Log.d(TAG, "rotate()");
+                touchY < startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 + 200
+
+        ) {
+            Log.d(TAG, "rotate()회전회전회전회전회전회전회전회전회전회전회전회전회전회전회전회전회전회전");
             rotate();
             return true;
         }
@@ -46,8 +53,11 @@ public class PlayerInputImplForN8 extends PlayerInput {
         if (touchX > startX &&
                 touchY > startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 &&
                 touchX < startX + 200 &&
-                touchY < startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 + 200) {
-            Log.d(TAG, "left()");
+                touchY < startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 + 200
+
+
+        ) {
+            Log.d(TAG, "left()왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼왼");
             left();
             return true;
         }
@@ -65,8 +75,10 @@ public class PlayerInputImplForN8 extends PlayerInput {
         if (touchX > startX + 500 &&
                 touchY > startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 &&
                 touchX < startX + 700 &&
-                touchY < startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 + 200) {
-            Log.d(TAG, "right()");
+                touchY < startY + BLOCK_IMAGE_SIZE * BOARD_HEIGHT + 100 + 200
+
+            ) {
+            Log.d(TAG, "right()오른오른오른오른오른오른오른오른오른오른오른오른오른오른오른오른오른오른");
             right();
             return true;
         }
@@ -83,7 +95,9 @@ public class PlayerInputImplForN8 extends PlayerInput {
         return false;
     }
 
-    public void mob(){
+
+
+   /* public void mob(){
         if (player == null) {
 
         }
@@ -128,5 +142,7 @@ public class PlayerInputImplForN8 extends PlayerInput {
 
 
         }
-    }
+    }*/
+
+
 }

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.waistand.SubActivity;
 import com.example.waistand.player.*;
 import com.example.waistand.tetris.Score;
 
@@ -64,9 +65,37 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
         playerHandler = new Handler(playerHandlerThread.getLooper()){
             @Override
             public void handleMessage(Message msg){
+                int getArray [] = ((SubActivity)SubActivity.context_sub).getarr;
+                int left1 =0; int right=0; int front=0; int back=0;
+
+                for (int l=0; l<14 ; l++){
+                    left1= left1 +getArray[l];
+                }
+                for (int r=14; r<28;r++){
+                    right = right + getArray[r];
+                    //Log.d("왼쪽", "? "+left1);
+                }
+                for(int f=9; f<19; f++){
+                    front = front +getArray[f];
+                }
+                for(int b=24; b<28; b++){
+                    back = back + getArray[b];
+                }
+
                 if (player != null && player.isPlayState()) {
                     player.MoveDown();
                     int gameSpeed = 700 - (player.getScore() / 10000);
+
+                    if(front>back && front>200){
+                        player.rotate();
+                    }
+                    else if (left1>right && left1>450){
+                        player.MoveLeft();
+                    }
+                    else if (left1<right && right>1000){
+                        player.MoveRight();
+                    }
+
                     if (playerHandler.hasMessages(EMPTY_MESSAGE)) {
                         playerHandler.removeMessages(EMPTY_MESSAGE);
                     }
@@ -134,6 +163,9 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
         playerUI.onDraw(canvas);
     }
 
+
+
+
     public boolean onTouchEvent(MotionEvent event) {
         Log.d(LOG_TAG, ">> X: " + event.getX() + " Y: " + event.getY());
 
@@ -155,6 +187,10 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
         }
 
         Log.d(LOG_TAG, ">> X: " + x + " Y: " + y);
+        Log.i("s", "onKeydown: ");
+
+
+        Log.i("array", "onTouchEvent: " );
         return playerInput.touch(x, y);
 
     }
