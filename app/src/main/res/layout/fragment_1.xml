@@ -8,7 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+  <!--  <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -124,14 +124,14 @@
                     android:background="@drawable/button_background"
                     android:textSize="20dp"/>
 
-               <!-- <Button
+               &lt;!&ndash; <Button
                     android:fontFamily="@font/binggraemelona"
                     android:id="@+id/btnRequest"
                     android:text="request "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_background"
-                    android:textSize="20dp"/>-->
+                    android:textSize="20dp"/>&ndash;&gt;
 
 
             </LinearLayout>
@@ -485,6 +485,723 @@
             android:layout_height="wrap_content"
             >
 
+            &lt;!&ndash;<TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="결과값" />&ndash;&gt;
+        </ScrollView>
+
+
+    </LinearLayout>-->
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ToggleButton
+            android:layout_gravity="end"
+            android:id="@+id/toggleButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="ToggleButton"
+            android:background="@drawable/silent"/>
+        <ImageButton
+            android:layout_gravity="end"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/question"
+            />
+    </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="70dp">
+                <TextView
+                    android:fontFamily="@font/binggraemelona"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="연결"
+                    android:textSize="30dp"
+                    android:paddingBottom="20dp"
+                    />
+                <Button
+                    android:fontFamily="@font/binggraemelona"
+                    android:id="@+id/btnConnect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="10dp"
+
+
+                    android:text="방석 연결"/>
+
+
+                <Button
+                    android:fontFamily="@font/binggraemelona"
+                    android:id="@+id/btnSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자세 측정"
+                    android:layout_marginBottom="10dp"
+
+                    android:background="@drawable/button_background"
+                    android:textSize="20dp"
+                    />
+
+
+
+                <TextView
+
+                    android:fontFamily="@font/binggraemelona"
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="현재시각"/>
+
+                <TextView
+                    android:fontFamily="@font/binggraemelona"
+                    android:id="@+id/tvCurretTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/binggraemelona"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="완료 "
+                    android:textSize="30dp"
+                    android:paddingBottom="20dp"
+                    />
+                <Button
+                    android:fontFamily="@font/binggraemelona"
+                    android:id="@+id/btnStop"
+                    android:text="측정 완료"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_background"
+                    android:textSize="20dp"/>
+
+                <!-- <Button
+                     android:fontFamily="@font/binggraemelona"
+                     android:id="@+id/btnRequest"
+                     android:text="request "
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/button_background"
+                     android:textSize="20dp"/>-->
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:gravity="center">
+            <TextView
+                android:fontFamily="@font/binggraemelona"
+                android:id="@+id/tvLeft"
+                android:text="왼쪽"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:paddingRight="30dp"/>
+            <TextView
+                android:fontFamily="@font/binggraemelona"
+                android:id="@+id/tvRight"
+                android:textSize="30dp"
+                android:text="오른쪽"
+                android:paddingLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/garolLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/leftVerticalLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="15dp">
+
+                <LinearLayout
+                    android:id="@+id/from07To09Layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="right">
+
+                    <TextView
+                        android:id="@+id/tv7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="07번"/>
+                    <TextView
+                        android:id="@+id/tv8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="08번"/>
+                    <TextView
+                        android:id="@+id/tv9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="09번"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/from03To06Layout"
+                    android:paddingTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="03번"/>
+                    <TextView
+                        android:id="@+id/tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="04번"/>
+                    <TextView
+                        android:id="@+id/tv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="05번"/>
+                    <TextView
+                        android:id="@+id/tv6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="06번"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/from00To02Layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:layout_gravity="right">
+
+                    <TextView
+                        android:id="@+id/tv0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="00번"/>
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="01번"/>
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="02번"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/rightVerticlaLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/from10to12Layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="10번"
+                        android:padding="3dp"
+                        android:background="@drawable/border" />
+                    <TextView
+                        android:id="@+id/tv11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="11번"
+                        android:padding="3dp"
+                        android:background="@drawable/border" />
+                    <TextView
+                        android:id="@+id/tv12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="12번"
+                        android:padding="3dp"
+                        android:background="@drawable/border" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/from13To16Layout"
+                    android:paddingTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="13번"/>
+                    <TextView
+                        android:id="@+id/tv14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="14번"/>
+                    <TextView
+                        android:id="@+id/tv15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="15번"/>
+                    <TextView
+                        android:id="@+id/tv16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/border"
+                        android:hint="16번"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/from17to19Layout"
+                    android:paddingTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="17번"
+                        android:padding="3dp"
+                        android:background="@drawable/border" />
+                    <TextView
+                        android:id="@+id/tv18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="18번"
+                        android:padding="3dp"
+                        android:background="@drawable/border" />
+                    <TextView
+                        android:id="@+id/tv19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="19번"
+                        android:padding="3dp"
+                        android:background="@drawable/border" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!--
+                <LinearLayout
+                    android:id="@+id/garolLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/leftVerticalLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:orientation="vertical"
+                        android:paddingRight="15dp">
+
+                        //아이디 값은 텍스트뷰는 tv , 버튼은 btn 으로 지정하였으며
+                        //각 속성값을 우선적으로 적은 후 이름을 붙였음
+
+                        <LinearLayout
+                            android:id="@+id/from09To13Layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:id="@+id/tv9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="09번"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="10번"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="11번" />
+
+                            <TextView
+                                android:id="@+id/tv12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="12번" />
+
+                            <TextView
+                                android:id="@+id/tv13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="13번" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/from4to8Layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="04번" />
+
+                            <TextView
+                                android:id="@+id/tv5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="05번"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="06번" />
+
+                            <TextView
+                                android:id="@+id/tv7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="07번" />
+
+                            <TextView
+                                android:id="@+id/tv8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="08번" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/from0to3Layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="right">
+
+                            <TextView
+                                android:id="@+id/tv0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="3dp"
+                                android:hint="00번"/>
+
+                            <TextView
+                                android:id="@+id/tv1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="01번"
+                                android:padding="3dp"
+                                android:background="@drawable/border" />
+
+                            <TextView
+                                android:id="@+id/tv2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="02번" />
+
+                            <TextView
+                                android:id="@+id/tv3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="03번" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rightVerticlaLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/from14to18Layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="14번"
+                                android:padding="3dp"
+                                android:background="@drawable/border" />
+
+                            <TextView
+                                android:id="@+id/tv15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="15번"
+                                android:padding="3dp"
+                                android:background="@drawable/border" />
+
+                            <TextView
+                                android:id="@+id/tv16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="16번" />
+
+                            <TextView
+                                android:id="@+id/tv17"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="3dp"
+                                android:hint="17번" />
+
+                            <TextView
+                                android:id="@+id/tv18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="3dp"
+                                android:hint="18번" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/from19to23Layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv19"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="19번"
+                                android:padding="3dp"
+                                android:background="@drawable/border" />
+
+                            <TextView
+                                android:id="@+id/tv20"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="20번"
+                                android:padding="3dp"
+                                android:background="@drawable/border" />
+
+                            <TextView
+                                android:id="@+id/tv21"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="21번" />
+
+                            <TextView
+                                android:id="@+id/tv22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="22번" />
+
+                            <TextView
+                                android:id="@+id/tv23"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="3dp"
+                                android:hint="23번" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/from24to27Layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv24"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="24번"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv25"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="25번"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                />
+
+                            <TextView
+                                android:id="@+id/tv26"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="3dp"
+                                android:hint="26번" />
+
+                            <TextView
+                                android:id="@+id/tv27"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/border"
+                                android:hint="27번" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
             <!--<TextView
                 android:id="@+id/tvResult"
                 android:layout_width="match_parent"
@@ -494,5 +1211,4 @@
 
 
     </LinearLayout>
-
 </FrameLayout>

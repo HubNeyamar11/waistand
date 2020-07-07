@@ -7,6 +7,7 @@ package com.example.waistand;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
 import android.widget.TextView;
 
 import com.example.waistand.flight.GameActivity;
@@ -53,7 +55,12 @@ public class Fragment2 extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         final ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_2, container, false);
+
+
+
+
 
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //게임 뷰 띄우기

@@ -6,6 +6,9 @@
     tools:context=".Fragment2">
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -62,7 +65,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:orientation="vertical"
         android:background="@drawable/tetrisback">
         <TextView
@@ -80,7 +83,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/binggraemelona"
-            android:text="허리 스트레칭으로 테트리스 게임!"
+            android:text="허리 스트레칭으로 테트리스 게임을 즐겨 보세요!"
             android:textColor="@color/colorYellow" />
         <TextView
             android:id="@+id/testrisHighScoreTxt"
@@ -101,8 +104,29 @@
             android:textColor="@color/colorYellow"
             android:id="@+id/tetrisPlay"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/imgcontin"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/background"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/binggraemelona"
+            android:text="To Be Continued"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="64sp"
+
+
+            />
+    </LinearLayout>
 
 </LinearLayout>
+    </ScrollView>
 
 
 

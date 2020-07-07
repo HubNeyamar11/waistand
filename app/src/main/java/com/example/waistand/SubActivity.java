@@ -9,24 +9,19 @@
 package com.example.waistand;
 
 import android.content.Context;
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.waistand.R;
-import com.example.waistand.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
-import com.kassisdion.library.ViewPagerWithIndicator;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class SubActivity extends AppCompatActivity {
 
@@ -78,6 +73,7 @@ public class SubActivity extends AppCompatActivity {
         public void onClick(View v) {
             //Toast.makeText(getApplicationContext(), "확인버튼이 눌렸습니다.",Toast.LENGTH_SHORT).show();
             //customDialog.dismiss();
+            customDialog.hide();
         }
     };
 

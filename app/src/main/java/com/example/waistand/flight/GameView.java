@@ -112,11 +112,11 @@ public class GameView extends SurfaceView implements Runnable {
     public void run() {
         //soundPool.play(backgroundSound,1,1,0,0,0.5f);
         mp = MediaPlayer.create(getContext() , R.raw.starwars);
-
+        mp.start();
 
         while (isPlaying) {
             Log.i("Run", "draw: ");
-            mp.start();
+
             moving();
             update ();
             draw ();
@@ -266,6 +266,7 @@ public class GameView extends SurfaceView implements Runnable {
 
             if (isGameOver) {
                 isPlaying = false;
+                mp.stop();
 //                canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint);
                 getHolder().unlockCanvasAndPost(canvas);
                 saveIfHighScore();
@@ -360,7 +361,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         int left1 =0; int right=0; int front=0; int back=0;
 
-        for (int l=0; l<14 ; l++){
+       /* for (int l=0; l<14 ; l++){
             left1= left1 +getArray[l];
 
         }
@@ -378,6 +379,24 @@ public class GameView extends SurfaceView implements Runnable {
         }
 
         for(int b=24; b<28; b++){
+            back = back + getArray[b];
+        }*/
+
+        for (int l=0; l<10 ; l++){
+            left1= left1 +getArray[l];
+
+        }
+        // Log.i("왼쪽1", "테스트: "+left1);
+        for (int r=10; r<20;r++){
+            right = right +getArray[r];
+        }
+        for (int f=7; f<13; f++){
+            front = front +getArray[f];
+        }
+        for(int b=0; b<3 ; b++){
+            back = back+ getArray[b];
+        }
+        for(int b=17; b<20; b++){
             back = back + getArray[b];
         }
 

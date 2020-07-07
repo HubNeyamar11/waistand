@@ -7,18 +7,20 @@ public class PlayerScoreImpl extends Score {
 
     protected void  calculatorScore(int removedLineCount) {
         if (removedLineCount == 0) {
-            this.additionalScore = 1;
+            this.additionalScore = 100;
         }
 
-        int lineScore[] = { 0, 88, 188, 288, 8888 };
+        int lineScore[] = { 0, 50, 100, 150, 200 };
 
-        additionalScore *= 10;
-
-        if (additionalScore > 10000) {
-            additionalScore = 10000;
+        for (int i = 0 ; i < removedLineCount ; i++) {
+            additionalScore += 100;
         }
-        
-        addScore(removedLineCount * 10 * additionalScore + lineScore[removedLineCount]);
+
+        if (additionalScore > 500) {
+            additionalScore = 500;
+        }
+
+        addScore(removedLineCount * additionalScore + lineScore[removedLineCount]);
     }
     protected void ClearBoard() {
         addScore(100000);

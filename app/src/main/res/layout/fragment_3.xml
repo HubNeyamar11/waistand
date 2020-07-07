@@ -34,7 +34,7 @@
                     android:id="@+id/todayTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6시간 40분"
+                    android:text="00시간 40분"
                     android:textSize="20dp"/>
             </LinearLayout>
 

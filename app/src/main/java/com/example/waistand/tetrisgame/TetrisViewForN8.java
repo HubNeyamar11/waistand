@@ -3,6 +3,8 @@ package com.example.waistand.tetrisgame;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.waistand.R;
 import com.example.waistand.SubActivity;
 import com.example.waistand.player.*;
 import com.example.waistand.tetris.Score;
@@ -33,6 +36,11 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
     private static final int EMPTY_MESSAGE = 0;
     private HandlerThread playerHandlerThread;
     private Handler playerHandler;
+
+    private SoundPool soundPool;
+    private static MediaPlayer mp;
+
+
 
     public TetrisViewForN8(Context context, Player player) {
         super(context);
@@ -59,6 +67,7 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
     }
 
     private void createPlayerThread() {
+        mp = MediaPlayer.create(getContext() , R.raw.soundtetris);
         Log.d(LOG_TAG,"createPlayerThread");
         playerHandlerThread = new HandlerThread("Player Processing Thread");
         playerHandlerThread.start();
@@ -68,7 +77,8 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
                 int getArray [] = ((SubActivity)SubActivity.context_sub).getarr;
                 int left1 =0; int right=0; int front=0; int back=0;
 
-                for (int l=0; l<14 ; l++){
+
+               /* for (int l=0; l<14 ; l++){
                     left1= left1 +getArray[l];
                 }
                 for (int r=14; r<28;r++){
@@ -79,6 +89,24 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
                     front = front +getArray[f];
                 }
                 for(int b=24; b<28; b++){
+                    back = back + getArray[b];
+                }*/
+
+                for (int l=0; l<10 ; l++){
+                    left1= left1 +getArray[l];
+
+                }
+                // Log.i("왼쪽1", "테스트: "+left1);
+                for (int r=10; r<20;r++){
+                    right = right +getArray[r];
+                }
+                for (int f=7; f<13; f++){
+                    front = front +getArray[f];
+                }
+                for(int b=0; b<3 ; b++){
+                    back = back+ getArray[b];
+                }
+                for(int b=17; b<20; b++){
                     back = back + getArray[b];
                 }
 
@@ -99,6 +127,8 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
                     if (playerHandler.hasMessages(EMPTY_MESSAGE)) {
                         playerHandler.removeMessages(EMPTY_MESSAGE);
                     }
+
+
                     playerHandler.sendEmptyMessageDelayed(EMPTY_MESSAGE, gameSpeed);
                 }
             }
@@ -111,6 +141,7 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
     }
 
     public void startGame() {
+        mp.start();
         playerHandler.sendEmptyMessage(EMPTY_MESSAGE);
     }
 
@@ -122,10 +153,12 @@ public class TetrisViewForN8 extends View implements PlayerObserver {
         }
         if (player != null) {
             player.pause();
+            mp.stop();
         }
 
         if (playerHandlerThread != null) {
             playerHandlerThread.quit();
+            mp.stop();
         }
         saveScore();
     }

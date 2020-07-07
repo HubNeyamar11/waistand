@@ -6,20 +6,18 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.bluetooth.BluetoothAdapter;
-import android.content.ContentValues;
+
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
-import android.os.AsyncTask;
+
+
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.room.Room;
 
 import android.os.Handler;
@@ -29,16 +27,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Objects;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -70,7 +65,7 @@ public class Fragment1 extends Fragment {
     private static String CHANNEL_ID = "channel1";
     private static String CHANEL_NAME = "Channel1";
 
-    public String arrayNums[] = new String[28]; //string 배열
+    public String arrayNums[] = new String[20]; //string 배열
     public int array[] = new int[arrayNums.length]; //int 배열
 
     public ToggleButton vibrate;
@@ -169,7 +164,7 @@ public class Fragment1 extends Fragment {
                 //---------------------------------------------------------------------------
                 //텍스트 레이아웃 배치 값 받아오기
 
-                for (int i = 0; i < 28; i++) {
+                for (int i = 0; i < 20; i++) {
 
 
                     int k = getResources().getIdentifier("tv" + i, "id", getActivity().getPackageName());
@@ -183,7 +178,9 @@ public class Fragment1 extends Fragment {
 
 
                     //값에따라 색상
-                    if (array[i]<70){
+
+                    //기존
+                    /*if (array[i]<70){
                         ((TextView) rootView.findViewById(k)).setBackgroundResource(R.color.mood);
                     }
                     else if (array[i]>70 && array[i]<151){
@@ -192,6 +189,22 @@ public class Fragment1 extends Fragment {
                         ((TextView) rootView.findViewById(k)).setBackgroundResource(R.color.colorOrange);
                     }else if (array[i]>230 ){
                         ((TextView) rootView.findViewById(k)).setBackgroundColor(Color.RED);
+                    }
+
+                    ((TextView) rootView.findViewById(k)).setText(arrayNums[i]);
+
+                }*/
+
+                    if (array[i]<101){
+                        ((TextView) rootView.findViewById(k)).setBackgroundResource(R.color.mood);
+
+                    }
+                    else if (array[i]>100 && array[i]<221){
+                        ((TextView) rootView.findViewById(k)).setBackgroundResource(R.color.tomato);
+                    }else if (array[i]>220 && array[i]<351){
+                        ((TextView) rootView.findViewById(k)).setBackgroundResource(R.color.colorOrange);
+                    }else if (array[i]>350 ){
+                        ((TextView) rootView.findViewById(k)).setBackgroundResource(R.color.colorte);
                     }
 
                     ((TextView) rootView.findViewById(k)).setText(arrayNums[i]);
@@ -213,7 +226,8 @@ public class Fragment1 extends Fragment {
                 int back=0;
 
 
-                for (int l=0; l<14 ; l++){
+                //--------------기존 방석 -------------
+                /*for (int l=0; l<14 ; l++){
                     left1= left1 +array[l];
 
                 }
@@ -254,14 +268,62 @@ public class Fragment1 extends Fragment {
                 else if(back<10 && front>150 &&vibrate.isChecked()){
                     showNotiB();
                     //btSpp.send("100",true);
+                }*/
+
+
+                for (int l=0; l<10 ; l++){
+                    left1= left1 +array[l];
+
+                }
+                //오른쪽 앞줄 3개
+                for(int le=10; le<13; le++){
+                    left2 = left2 + array[le];
+                }
+
+                //왼쪽 앞줄 3개
+                for(int ri=7; ri<10; ri++){
+                    right2 = right2 + array[ri];
+                }
+
+               // Log.i("왼쪽1", "테스트: "+left1);
+                for (int r=10; r<20;r++){
+                    right = right + array[r];
+                }
+                for (int f=7; f<13; f++){
+                    front = front +array[f];
+                }
+                for(int b=0; b<3 ; b++){
+                    back = back+ array[b];
+                }
+                for(int b=17; b<20; b++){
+                    back = back + array[b];
+                }
+                Log.i("left", " 왼쪽값 "+ left1);
+                Log.i("right", "오른쪽값 "+ right);
+                Log.i("front", "앞에값 "+ front);
+                Log.i("back", "뒤에값 "+back);
+
+                if (left1>right&& right<1500 && vibrate.isChecked()  ){
+                    //푸시 알림
+                    showNotiL();
+                    //btSpp.send("qwer",true);
+                    //Toast.makeText(getActivity().getApplicationContext(),"바른 자세로 앉아 주세요! ",Toast.LENGTH_SHORT).show();
+                }
+                else if (left1<right  && left1<1700 &&vibrate.isChecked() ){
+                    showNotiR();
+                    //btSpp.send("qwer",true);
+                    //Toast.makeText(getActivity().getApplicationContext(),"바른 자세로 앉아주세요! ",Toast.LENGTH_SHORT).show();
+                }
+                else if(front>1900 && back>800 &&back<1500 && vibrate.isChecked()) {
+                    showNotiF();
+                    //btSpp.send("qwer",true);
+                }
+                else if(back<200 && front>1550 &&vibrate.isChecked()){
+                    showNotiB();
+                    //btSpp.send("100",true);
                 }
 
 
-                String toLeft = Integer.toString(left1);
-                String toRight = Integer.toString(right);
-
-                /*tvrleft.setText(toLeft);
-                tvright.setText(toRight);*/
 
 
             }
@@ -384,13 +446,10 @@ public class Fragment1 extends Fragment {
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
         builder.setAutoCancel(true);
-
         builder.setDefaults(Notification.DEFAULT_SOUND);
-
         Notification notification = builder.build();
         //알림창 실행
         manager.notify(1,notification);
-
     }
 
     public void showNotiR(){
@@ -462,6 +521,62 @@ public class Fragment1 extends Fragment {
         builder.setContentTitle("Waistand");
         // 알림창 메시지
         builder.setContentText("방석에 걸터 앉으셨어요!");
+        // 알림창 아이콘
+        builder.setSmallIcon(R.drawable.sensor);
+        //알림창 터치시 삭제
+        builder.setAutoCancel(true);
+
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        Notification notification = builder.build();
+        //알림창 실행
+        manager.notify(1,notification);
+
+    }
+
+    public void showNotiCrossL(){
+        builder = null; manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            manager.createNotificationChannel(
+                    new NotificationChannel(CHANNEL_ID, CHANEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
+            );
+            builder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID);
+            //하위 버전일 경우
+        }else{
+            builder = new NotificationCompat.Builder(getActivity());
+        }
+        //알림창 제목
+        builder.setContentTitle("Waistand");
+        // 알림창 메시지
+        builder.setContentText("왼쪽 다리를 꼬으셨어요!");
+        // 알림창 아이콘
+        builder.setSmallIcon(R.drawable.sensor);
+        //알림창 터치시 삭제
+        builder.setAutoCancel(true);
+
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        Notification notification = builder.build();
+        //알림창 실행
+        manager.notify(1,notification);
+
+    }
+
+    public void showNotiCrossR(){
+        builder = null; manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            manager.createNotificationChannel(
+                    new NotificationChannel(CHANNEL_ID, CHANEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
+            );
+            builder = new NotificationCompat.Builder(getActivity(),CHANNEL_ID);
+            //하위 버전일 경우
+        }else{
+            builder = new NotificationCompat.Builder(getActivity());
+        }
+        //알림창 제목
+        builder.setContentTitle("Waistand");
+        // 알림창 메시지
+        builder.setContentText("왼쪽 다리를 꼬으셨어요!");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
