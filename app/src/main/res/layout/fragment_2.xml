@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:text="허리 스트레칭을 하며 운석을 피해 보아요!"
+            android:text="腰ストレッチングをしながら隕石を避けましょう！"
             android:textColor="#ffffff" />
         <TextView
             android:id="@+id/highScoreTxt"
@@ -83,7 +83,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/binggraemelona"
-            android:text="허리 스트레칭으로 테트리스 게임을 즐겨 보세요!"
+            android:text="腰ストレッチングをしながらテトリスを楽しみましょう！"
             android:textColor="@color/colorYellow" />
         <TextView
             android:id="@+id/testrisHighScoreTxt"

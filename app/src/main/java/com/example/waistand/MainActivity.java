@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         findViewById(R.id.loginButton).setOnClickListener(onClickListener);
-        findViewById(R.id.gotoSignUpButton).setOnClickListener(onClickListener);
+        //findViewById(R.id.gotoSignUpButton).setOnClickListener(onClickListener);
 
         /*Button loginBtn= findViewById(R.id.loginButton);
         loginBtn.setOnClickListener(new View.OnClickListener(){
@@ -63,10 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        super.onBackPressed();
+      /*  super.onBackPressed();
         moveTaskToBack(true);
         android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(1);
+        System.exit(1);*/
+        super.onBackPressed();
+        moveTaskToBack(true);
+        Intent intent = new Intent(getApplicationContext(), TestMainActivity.class );
+        startActivity(intent);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -77,10 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("로그인", "onClick: ");
                     login();
                     break;
-                case R.id.gotoSignUpButton:
-                    Log.i("회원가입", "onClick: ");
-                    startSignUp();
-                    break;
+
 
             }
         }
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                startToast("로그인 성공");
+                                startToast("ログイン成功");
                                 startMain();
 
 
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
         }else {
-            startToast("이메일 또는 비밀 번호를 입력 해주세요");
+            startToast("メールアドレスまたはパスワードを入力してください");
 
         }
     }

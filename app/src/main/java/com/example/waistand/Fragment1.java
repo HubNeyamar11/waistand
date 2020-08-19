@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -52,8 +53,8 @@ public class Fragment1 extends Fragment {
 
 
     private BluetoothSPP btSpp;
-    private Button btnConnect;
-    private Button btnSend;
+    private ImageView btnConnect;
+    private ImageView btnSend;
 
 
     int value=0;
@@ -89,12 +90,12 @@ public class Fragment1 extends Fragment {
 
 
 
-        Button stop = rootView.findViewById(R.id.btnStop);
+        ImageView stop = rootView.findViewById(R.id.btnStop);
 
         //Button request = rootView.findViewById(R.id.btnRequest);
 
-        btnConnect = rootView.findViewById(R.id.btnConnect);
-        btnSend = rootView.findViewById(R.id.btnSend);
+         btnConnect = rootView.findViewById(R.id.btnConnect);
+          btnSend = rootView.findViewById(R.id.btnSend);
 
         btSpp = new BluetoothSPP(getContext());
         Log.i("BLUETOOTHENABLE", ""+btSpp);
@@ -333,17 +334,17 @@ public class Fragment1 extends Fragment {
         btSpp.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
             @Override
             public void onDeviceConnected(String name, String address) { // 연결 됐을 때
-                Toast.makeText(getActivity().getApplicationContext(), name + "에 연결됨 \n" + address, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), name + "に接続 \n" + address, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDeviceDisconnected() {
-                Toast.makeText(getActivity().getApplicationContext(), "연결 해제됨", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "接続が切れました", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDeviceConnectionFailed() { //연결 실패
-                Toast.makeText(getActivity().getApplicationContext(), "연결 실패!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "接続失敗", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -424,7 +425,7 @@ public class Fragment1 extends Fragment {
 
 
 
-    //푸시 알림 메소드
+    //PUSH 通知 메소드
     public void showNotiL() {
         builder = null;
         manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE); //버전 오레오 이상일 경우
@@ -441,7 +442,7 @@ public class Fragment1 extends Fragment {
         //알림창 제목
         builder.setContentTitle("Waistand");
         // 알림창 메시지
-        builder.setContentText("왼쪽으로 치우쳤어요!");
+        builder.setContentText("左側で傾きました！");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
@@ -466,7 +467,7 @@ public class Fragment1 extends Fragment {
         //알림창 제목
         builder.setContentTitle("Waistand");
         // 알림창 메시지
-        builder.setContentText("오른쪽으로 치우쳤어요!");
+        builder.setContentText("右側で傾きました！");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
@@ -493,7 +494,7 @@ public class Fragment1 extends Fragment {
         //알림창 제목
         builder.setContentTitle("Waistand");
         // 알림창 메시지
-        builder.setContentText("앞으로 숙이셨어요!");
+        builder.setContentText("前に曲がっています!");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
@@ -520,7 +521,7 @@ public class Fragment1 extends Fragment {
         //알림창 제목
         builder.setContentTitle("Waistand");
         // 알림창 메시지
-        builder.setContentText("방석에 걸터 앉으셨어요!");
+        builder.setContentText("背もたれに寄りかかっています!");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
@@ -548,7 +549,7 @@ public class Fragment1 extends Fragment {
         //알림창 제목
         builder.setContentTitle("Waistand");
         // 알림창 메시지
-        builder.setContentText("왼쪽 다리를 꼬으셨어요!");
+        builder.setContentText("左足を組んでいます!");
         // 알림창 아이콘
         builder.setSmallIcon(R.drawable.sensor);
         //알림창 터치시 삭제
@@ -653,7 +654,7 @@ public class Fragment1 extends Fragment {
                 setup();
             }
             else{
-                Toast.makeText(getActivity().getApplicationContext(), "블루투스가 활성화 되지 않았음", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "ブルートゥースがオフになっている", Toast.LENGTH_SHORT).show();
                 getActivity().finish();
             }
         }

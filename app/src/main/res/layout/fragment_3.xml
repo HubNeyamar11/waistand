@@ -27,14 +27,14 @@
                     android:id="@+id/timeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="오늘 총 착석시간 : "
+                    android:text="今日の着席時間 : "
                     android:textSize="20dp"/>
                 <TextView
                     android:fontFamily="@font/binggraemelona"
                     android:id="@+id/todayTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00시간 40분"
+                    android:text="00時間 40分"
                     android:textSize="20dp"/>
             </LinearLayout>
 

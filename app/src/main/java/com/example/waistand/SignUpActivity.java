@@ -34,17 +34,9 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
-        findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
+        //findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
 
-        /*Button loginBtn= findViewById(R.id.loginButton);
-        loginBtn.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SubActivity.class);
-                startActivity(intent);
-            }
-        });*/
     }
 
     @Override
@@ -87,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 //loaderLayout.setVisibility(View.GONE);
                                 if (task.isSuccessful()) { //회원가입 성공시 로직
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    startToast("회원가입 성공");
+                                    startToast("会員登録成功");
                                     startLogin();
                                     //showToast(SignUpActivity.this, "회원가입에 성공하였습니다.");
                                     //myStartActivity(MainActivity.class);
@@ -103,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
                             }
                         });
             }else{
-                startToast("비밀번호 불일치");
+                startToast("パスワード不一致");
                 //showToast(SignUpActivity.this, "비밀번호가 일치하지 않습니다.");
             }
         }else {

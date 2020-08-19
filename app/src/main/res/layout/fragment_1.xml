@@ -494,6 +494,10 @@
 
 
     </LinearLayout>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
@@ -512,56 +516,38 @@
             android:layout_height="40dp"
             android:text="ToggleButton"
             android:background="@drawable/silent"/>
-        <ImageButton
-            android:layout_gravity="end"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/question"
-            />
+
     </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
-            android:paddingTop="10dp"
+            android:paddingTop="0dp"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="70dp">
-                <TextView
-                    android:fontFamily="@font/binggraemelona"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="연결"
-                    android:textSize="30dp"
-                    android:paddingBottom="20dp"
-                    />
-                <Button
-                    android:fontFamily="@font/binggraemelona"
+                >
+
+                <ImageView
+                    android:src="@drawable/cushion_button"
                     android:id="@+id/btnConnect"
-                    android:layout_width="wrap_content"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_background"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"
+                    />
 
 
-                    android:text="방석 연결"/>
+                <ImageView
 
-
-                <Button
-                    android:fontFamily="@font/binggraemelona"
                     android:id="@+id/btnSend"
-                    android:layout_width="wrap_content"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:text="자세 측정"
-                    android:layout_marginBottom="10dp"
+                   android:src="@drawable/start_button"
 
-                    android:background="@drawable/button_background"
+
+
                     android:textSize="20dp"
                     />
 
@@ -573,7 +559,7 @@
                     android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="현재시각"/>
+                    android:text="現在時間"/>
 
                 <TextView
                     android:fontFamily="@font/binggraemelona"
@@ -589,33 +575,27 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:fontFamily="@font/binggraemelona"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="완료 "
-                    android:textSize="30dp"
-                    android:paddingBottom="20dp"
-                    />
-                <Button
-                    android:fontFamily="@font/binggraemelona"
-                    android:id="@+id/btnStop"
-                    android:text="측정 완료"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/button_background"
-                    android:textSize="20dp"/>
 
-                <!-- <Button
-                     android:fontFamily="@font/binggraemelona"
-                     android:id="@+id/btnRequest"
-                     android:text="request "
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:background="@drawable/button_background"
-                     android:textSize="20dp"/>-->
+                <ImageView
+
+
+                    android:id="@+id/btnStop"
+                    android:src="@drawable/succes_button"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+
+                    />
+                <ImageView
+
+
+                    android:id="@+id/btnStop"
+                    android:src="@drawable/help_button"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+
+                    />
+
+
 
 
             </LinearLayout>
@@ -632,7 +612,7 @@
             <TextView
                 android:fontFamily="@font/binggraemelona"
                 android:id="@+id/tvLeft"
-                android:text="왼쪽"
+                android:text="左"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
@@ -641,8 +621,8 @@
                 android:fontFamily="@font/binggraemelona"
                 android:id="@+id/tvRight"
                 android:textSize="30dp"
-                android:text="오른쪽"
-                android:paddingLeft="30dp"
+                android:text="右"
+                android:paddingLeft="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -680,21 +660,21 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="07번"/>
+                        android:hint="007"/>
                     <TextView
                         android:id="@+id/tv8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="08번"/>
+                        android:hint="008"/>
                     <TextView
                         android:id="@+id/tv9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="09번"/>
+                        android:hint="009"/>
 
                 </LinearLayout>
 
@@ -711,28 +691,28 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="03번"/>
+                        android:hint="003"/>
                     <TextView
                         android:id="@+id/tv4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="04번"/>
+                        android:hint="004"/>
                     <TextView
                         android:id="@+id/tv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="05번"/>
+                        android:hint="005"/>
                     <TextView
                         android:id="@+id/tv6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="06번"/>
+                        android:hint="006"/>
 
                 </LinearLayout>
 
@@ -750,21 +730,21 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="00번"/>
+                        android:hint="000"/>
                     <TextView
                         android:id="@+id/tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="01번"/>
+                        android:hint="001"/>
                     <TextView
                         android:id="@+id/tv2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="02번"/>
+                        android:hint="002"/>
 
                 </LinearLayout>
 
@@ -788,21 +768,21 @@
                         android:id="@+id/tv10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="10번"
+                        android:hint="010"
                         android:padding="3dp"
                         android:background="@drawable/border" />
                     <TextView
                         android:id="@+id/tv11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="11번"
+                        android:hint="011"
                         android:padding="3dp"
                         android:background="@drawable/border" />
                     <TextView
                         android:id="@+id/tv12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="12번"
+                        android:hint="012"
                         android:padding="3dp"
                         android:background="@drawable/border" />
 
@@ -821,28 +801,28 @@
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="13번"/>
+                        android:hint="013"/>
                     <TextView
                         android:id="@+id/tv14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="14번"/>
+                        android:hint="014"/>
                     <TextView
                         android:id="@+id/tv15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="15번"/>
+                        android:hint="015"/>
                     <TextView
                         android:id="@+id/tv16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:hint="16번"/>
+                        android:hint="016"/>
 
                 </LinearLayout>
 
@@ -857,21 +837,21 @@
                         android:id="@+id/tv17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="17번"
+                        android:hint="017"
                         android:padding="3dp"
                         android:background="@drawable/border" />
                     <TextView
                         android:id="@+id/tv18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="18번"
+                        android:hint="018"
                         android:padding="3dp"
                         android:background="@drawable/border" />
                     <TextView
                         android:id="@+id/tv19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="19번"
+                        android:hint="019"
                         android:padding="3dp"
                         android:background="@drawable/border" />
 
@@ -1197,18 +1177,11 @@
 
                 </LinearLayout>
                 -->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
 
-            <!--<TextView
-                android:id="@+id/tvResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="결과값" />-->
-        </ScrollView>
+
 
 
     </LinearLayout>
+    </ScrollView>
+
 </FrameLayout>

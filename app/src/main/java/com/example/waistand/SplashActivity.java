@@ -20,14 +20,14 @@ public class SplashActivity extends AppCompatActivity {
         hd.postDelayed(new splashhandler(), 3000); // 1초 후에 hd handler 실행  3000ms = 3초
 
         ImageView animView = findViewById(R.id.imageView);
-        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.reduction);
-        animView.setAnimation(anim);
+        /*Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.reduction);
+        animView.setAnimation(anim);*/
 
     }
     private class splashhandler implements Runnable{
         public void run(){
 
-            startActivity(new Intent(getApplication(), MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
+            startActivity(new Intent(getApplication(), TestMainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
             SplashActivity.this.finish(); // 로딩페이지 Activity stack에서 제거
         }
     }

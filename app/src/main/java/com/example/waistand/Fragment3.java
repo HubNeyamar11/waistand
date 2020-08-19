@@ -111,8 +111,8 @@ public class Fragment3 extends Fragment {
         jsonList_pie.add(60);
         jsonList_pie.add(40);
 
-        labelList_pie.add("바른 자세");
-        labelList_pie.add("나쁜 자세");
+        labelList_pie.add("正しい姿勢");
+        labelList_pie.add("悪い姿勢");
     }
 
     private void PieChartGraph(PieChart pieChart, ArrayList jsonList_pie, ArrayList labelList_pie){
@@ -127,7 +127,7 @@ public class Fragment3 extends Fragment {
         PieData pieData = new PieData(pieDataSet); //파이차트 데이터 세팅 완료
 //        pieChart.setDrawEntryLabels(true);
 //        pieChart.setUsePercentValues(true);
-        pieChart.setCenterText("바른자세로 앉은 시간:\n00시간 24분");
+        pieChart.setCenterText("正しい姿勢で座った時間:\n00時間 24分");
         pieChart.setCenterTextSize(10);
 
         pieChart.setData(pieData); // 파이차트 완성

@@ -57,9 +57,10 @@ public class SubActivity extends AppCompatActivity {
         tab.setupWithViewPager(vp);
 
         ArrayList<Integer> images = new ArrayList<>();
-        images.add(R.drawable.seat);
-        images.add(R.drawable.gamecontroller);
-        images.add(R.drawable.calendar_monthly);
+        images.add(R.drawable.this_icon);
+        images.add(R.drawable.gameconsole);
+        images.add(R.drawable.graph_icon);
+        //images.add(R.drawable.acushion);
 
         context_sub = this;
         for(int i=0; i<3; i++)
